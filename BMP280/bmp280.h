@@ -24,9 +24,6 @@
 #define BMP280_CHIP_ID  0x58 /* BMP280 has chip-id 0x58 */
 #define BME280_CHIP_ID  0x60 /* BME280 has chip-id 0x60 */
 
-typedef struct{
-
-}BMP280_Measure_t;
 /**
  * Mode of BMP280 module operation.
  * Forced - Measurement is initiated by user.

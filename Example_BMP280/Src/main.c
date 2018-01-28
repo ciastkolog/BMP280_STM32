@@ -130,7 +130,7 @@ int main(void) {
 		/* USER CODE END WHILE */
 
 		/* USER CODE BEGIN 3 */
-
+		HAL_Delay(100);
 		while (!bmp280_read_float(&bmp280, &temperature, &pressure, &humidity)) {
 			size = sprintf((char *)Data,
 					"Temperature/pressure reading failed\n");
@@ -140,6 +140,7 @@ int main(void) {
 
 		size = sprintf((char *)Data,"Pressure: %.2f Pa, Temperature: %.2f C",
 				pressure, temperature);
+		HAL_UART_Transmit(&huart1, Data, size, 1000);
 		if (bme280p) {
 			size = sprintf((char *)Data,", Humidity: %.2f\n", humidity);
 			HAL_UART_Transmit(&huart1, Data, size, 1000);
